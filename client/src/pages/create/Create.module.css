@@ -1,0 +1,38 @@
+
+.post {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px 20px 10px;
+}
+
+.post form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.post form input[type="title"],
+input[type="summary"],
+input[type="file"] {
+    font-size: 1rem;
+    padding: 0.8rem;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .post input[type="file"] {
+    cursor: pointer;
+  }
+  .tupe{
+    font-size: 1rem;
+    padding: 0.8rem;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }

@@ -1,0 +1,128 @@
+
+  .auth {
+    min-height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .auth .img {
+    animation: slide-down 0.5s ease;
+  }
+  
+  .auth .form {
+    width: 100%;
+    padding: 1.5rem;
+    animation: slide-up 0.5s ease;
+  }
+  
+  .auth .form h2 {
+    text-align: center;
+  }
+  
+  .auth .form form input[type="text"],
+  .auth .form form input[type="email"],
+  .auth .form form input[type="password"] {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 0.8rem;
+    margin: 1rem auto;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  
+  .auth .form form .links {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  
+  .auth .form form p {
+    text-align: center;
+    margin: 1rem;
+  }
+  
+  .auth .form .register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  @keyframes slide-up {
+    0% {
+      transform: translateY(-5rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slide-down {
+    0% {
+      transform: translateY(5rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @media screen and (max-width: 1028px) {
+  
+    .auth {
+      min-height: 80vh;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 804px) {
+
+    .auth .img {
+      width: 60%;
+    }
+
+    .auth .img img {
+      width: 100%;
+    }
+    .auth .form {
+      width: 100%;
+    }
+  }
+  
+  
+
+  @media screen and (max-width: 416px) {
+    /* .auth .form {
+      width: 20rem;
+    } */
+  
+    .auth .img {
+      width: 20rem;
+    }
+  
+    img {
+      width: 100%;
+    }
+  }
+  
+  
+  
+  
+  .form-control form input[type="password"] {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 0.8rem;
+    margin: 1rem auto;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }

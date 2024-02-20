@@ -1,0 +1,21 @@
+.card {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    width: 60%;
+  }
+
+
+  @media screen and (max-width: 804px) {
+
+    .card {
+      width: 80%;
+    }
+  }
+  @media screen and (max-width: 508px) {
+
+    .card {
+      width: 100%;
+    }
+  }
