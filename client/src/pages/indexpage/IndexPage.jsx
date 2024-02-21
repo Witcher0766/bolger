@@ -3,7 +3,7 @@ import Post from '../../component/post/Post';
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -16,21 +16,21 @@ const IndexPage = () => {
       })
       .then(posts => {
         setPosts(posts);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch(error => {
         setError(error);
-        setLoading(false);
+        // setLoading(false);
       });
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
+  // if (error) {
+  //   return <p>Error: {error.message}</p>;
+  // }
 
   return (
     <>
