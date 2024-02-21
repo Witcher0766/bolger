@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const cookieparser = require('cookie-parser');
 const multer  = require('multer')
 const fs = require('fs');
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.REACT_BACKEND || 4000;
 
 const uploadMiddleware = multer({ dest: 'uploads/' })
 const salt = bcrypt.genSaltSync(10);
