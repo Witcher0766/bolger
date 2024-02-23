@@ -8,14 +8,23 @@ const jwt = require('jsonwebtoken');
 const cookieparser = require('cookie-parser');
 const multer  = require('multer')
 const fs = require('fs');
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.BASE_URL || 4000;
 
+require('dotenv').config()
 const uploadMiddleware = multer({ dest: 'uploads/' })
 const salt = bcrypt.genSaltSync(10);
 const secret = 'axcjkasfjkhkhkjhjgjsfdk';
 const app = express();
 // app.use(cors({credentials:true,origin:['http://localhost:3000', 'https://bolger.onrender.com']}));
-app.use(cors({credentials:true,origin:['https://bolger.onrender.com', 'http://localhost:3000']}));
+app.use(cors({credentials:true,origin: process.env.BASE_URL }));
+// app.use(cors({
+//     credentials: true,
+//     origin: (origin, callback) => {
+//       const allowedOrigins = [`${process.env.BASE_URL}`];
+//       const isAllowed = allowedOrigins.includes(origin);
+//       callback(null, isAllowed);
+//     },
+//   }));
 app.use(express.json());
 app.use(cookieparser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
