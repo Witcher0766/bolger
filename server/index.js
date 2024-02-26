@@ -15,15 +15,12 @@ const uploadMiddleware = multer({ dest: 'uploads/' })
 const salt = bcrypt.genSaltSync(10);
 const secret = 'axcjkasfjkhkhkjhjgjsfdk';
 const app = express();
-// app.use(cors({credentials:true,origin:['http://localhost:3000', 'https://bolger.onrender.com']}));
-app.use(cors({credentials:true,origin: process.env.BASE_URL }));
+app.use(cors({credentials:true,origin:['http://localhost:3000', 'https://bolger.onrender.com'], methods: ["POST", "GET", "PUT", "DELETE"]}));
+// app.use(cors({credentials:true,origin: process.env.BASE_URL }));
 // app.use(cors({
+//     origin:['http://localhost:3000', 'https://bolger.onrender.com'],
+//     methods: ["POST", "GET"],
 //     credentials: true,
-//     origin: (origin, callback) => {
-//       const allowedOrigins = [`${process.env.BASE_URL}`];
-//       const isAllowed = allowedOrigins.includes(origin);
-//       callback(null, isAllowed);
-//     },
 //   }));
 app.use(express.json());
 app.use(cookieparser());
