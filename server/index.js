@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const cookieparser = require('cookie-parser');
 const multer  = require('multer')
 const fs = require('fs');
-const PORT = process.env.BASE_URL || 4000;
+const PORT = process.env.PORT || 4000;
 
 require('dotenv').config()
 const uploadMiddleware = multer({ dest: 'uploads/' })
