@@ -15,16 +15,17 @@ const uploadMiddleware = multer({ dest: 'uploads/' })
 const salt = bcrypt.genSaltSync(10);
 const secret = 'axcjkasfjkhkhkjhjgjsfdk';
 const app = express();
-app.use(cors({credentials:true,origin:['http://localhost:3000', 'https://bolger.onrender.com'], methods: ["POST", "GET", "PUT", "DELETE"]}));
-// app.use(cors({credentials:true,origin: process.env.BASE_URL }));
-// app.use(cors({
-//     origin:['http://localhost:3000', 'https://bolger.onrender.com'],
-//     methods: ["POST", "GET"],
-//     credentials: true,
-//   }));
+
 app.use(express.json());
 app.use(cookieparser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
+// app.use(cors({credentials:true,origin:['http://localhost:3000', 'https://bolger.onrender.com'], methods: ["POST", "GET", "PUT", "DELETE"]}));
+// app.use(cors({credentials:true,origin: process.env.BASE_URL }));
+app.use(cors({
+    origin:['http://localhost:3000', 'https://bolger.onrender.com'],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  }));
 
 mongoose.connect('mongodb+srv://vishuBlog:FDagOgVkEAFX2d5A@cluster0.tt8eis7.mongodb.net/?retryWrites=true&w=majority')
 
