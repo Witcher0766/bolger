@@ -30,7 +30,7 @@ const corsOptions = {
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
     exposedHeaders: ['Set-Cookie'],
-    secure: true, // Require HTTPS for production
+    secure: false, // Require HTTPS for production
   };
   
   app.use(cors(corsOptions));
