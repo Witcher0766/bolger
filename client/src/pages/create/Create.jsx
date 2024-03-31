@@ -28,9 +28,13 @@ const Create = () => {
             }
             e.preventDefault();
             const response = await fetch(`${process.env.REACT_APP_SERVER_URL}post`, {
+                // method: 'POST',
+                // body: data,
+                // credentials: 'include',
                 method: 'POST',
                 body: data,
                 credentials: 'include',
+                withCredentials: true,
             });
             if (response.ok) {
                 navigate('/');

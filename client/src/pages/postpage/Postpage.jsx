@@ -25,8 +25,11 @@ const Postpage = () => {
   const handleDelete = async () => {
     try {
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}post/${id}`, {
+        // method: 'DELETE',
+        // credentials: 'include',
         method: 'DELETE',
         credentials: 'include',
+        withCredentials: true,
       })
       if(response.ok) {
         toast.success("Your post is deleted successfully..!");

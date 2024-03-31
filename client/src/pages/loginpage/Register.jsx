@@ -16,9 +16,14 @@ const Register = () => {
     try {
       e.preventDefault();
       const response = await fetch(`${process.env.REACT_APP_SERVER_URL}register`, {
+        // method: 'POST',
+        // body: JSON.stringify({ username, password }),
+        // headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        withCredentials: true,
       });
   
       if (response.status === 200) {

@@ -19,13 +19,21 @@ const app = express();
 app.use(express.json());
 app.use(cookieparser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
-// app.use(cors({credentials:true,origin:['http://localhost:3000', 'https://bolger.onrender.com'], methods: ["POST", "GET", "PUT", "DELETE"]}));
-// app.use(cors({credentials:true,origin: process.env.BASE_URL }));
-app.use(cors({
-    origin:['http://localhost:3000', 'https://bolger.onrender.com'],
-    methods: ["POST", "GET", "PUT", "DELETE"],
+// app.use(cors({
+//     origin:['http://localhost:3000', 'https://bolger.onrender.com'],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//   }));
+const corsOptions = {
+    origin: ['http://localhost:3000', 'https://bolger.onrender.com'],
+    methods: ['POST', 'GET', 'PUT', 'DELETE'],
     credentials: true,
-  }));
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['Set-Cookie'],
+    secure: true, // Require HTTPS for production
+  };
+  
+  app.use(cors(corsOptions));
 
 mongoose.connect('mongodb+srv://vishuBlog:FDagOgVkEAFX2d5A@cluster0.tt8eis7.mongodb.net/?retryWrites=true&w=majority')
 
@@ -69,9 +77,12 @@ app.post('/login', async (req, res) => {
 
 app.get('/profile', (req, res) => {
     const {token} = req.cookies;
+    if (!token) {
+        return res.status(401).json({ error: 'No token provided' });
+    }
     jwt.verify(token, secret, {}, (err, info) => {
         if (err) {
-            res.status(401).json({ error: 'Unauthorized' });
+            return res.status(401).json({ error: 'Invalid token' });
         } else {
             res.json(info);
         }

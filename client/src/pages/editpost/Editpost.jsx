@@ -37,9 +37,13 @@ const Editpost = () => {
       data.set('file', files?.[0]);
   }
    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}post`, {
+                // method: 'PUT',
+                // body: data,
+                // credentials: 'include',
                 method: 'PUT',
                 body: data,
                 credentials: 'include',
+                withCredentials: true,
             });
 
             if (response.ok) {
