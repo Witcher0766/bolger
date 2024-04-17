@@ -35,6 +35,9 @@ const LoginPage = () => {
       });
       if (response.status === 200) {
         response.json().then(userInfo => {
+          localStorage.setItem('userInfo', JSON.stringify(userInfo));
+          localStorage.setItem('isLoggedIn', true); 
+          localStorage.setItem('username', username); 
           setUserInfo(userInfo);
           navigate("/");
           toast.success("Login successful");

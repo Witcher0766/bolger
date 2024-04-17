@@ -44,6 +44,7 @@ const Editpost = () => {
                 body: data,
                 credentials: 'include',
                 withCredentials: true,
+                mode: 'cors',
             });
 
             if (response.ok) {

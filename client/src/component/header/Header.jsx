@@ -38,6 +38,7 @@ const Header = () => {
     .catch(error => {
       toast.error('Fetch error during logout:');
     });
+    localStorage.clear();
   }
 
     let username = userInfo?.username;

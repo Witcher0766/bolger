@@ -35,6 +35,7 @@ const Create = () => {
                 body: data,
                 credentials: 'include',
                 withCredentials: true,
+                mode: 'cors',
             });
             if (response.ok) {
                 navigate('/');

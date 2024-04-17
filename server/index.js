@@ -32,6 +32,11 @@ const corsOptions = {
     exposedHeaders: ['Set-Cookie'],
     secure: false, // Require HTTPS for production
   };
+
+//   app.options('*', (req, res) => {
+//     res.send(200);
+//   });
+  
   
   app.use(cors(corsOptions));
 
@@ -187,6 +192,10 @@ app.delete('/post/:id', async (req, res) => {
         res.status(500).json({ success: false, message: 'Unable to delete post' });
       }
 })
+
+app.options('*', (req, res) => {
+    res.send(200);
+  });
 
 
 app.listen(PORT, () => {
